@@ -1,0 +1,62 @@
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+.navcolor{
+  font-family:'Mate SC', serif;
+  font-size:25px;
+}
+
+
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark navcolor">
+<%= link_to "My App", root_path,class:"navbar-brand text-white" %>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active ">
+      <%= link_to "About",home_about_path,class:"nav-link text-white" %>
+        
+      </li>
+
+
+
+      <%if user_signed_in?%>
+      
+
+      <li class="nav-item active">
+      <%= link_to "Add Friend",new_friend_path,class:"nav-link text-white" %>
+        
+      </li>
+      <li class="nav-item active">
+      <%= link_to "Edit Profile",edit_user_registration_path,class:"nav-link text-white" %>
+        
+      </li>
+      <li class="nav-item active">
+      <%= link_to "Sign Out",destroy_user_session_path,method: :delete,class:"nav-link text-white" %>
+        
+      </li>
+      <%else%>
+      <li class="nav-item active">
+      <%= link_to "Sign Up",new_user_registration_path,class:"nav-link text-white" %>
+        
+      </li>
+
+      <li class="nav-item active">
+      <%= link_to "Sign In",new_user_session_path,class:"nav-link text-white" %>
+        
+      </li>
+      <%end%>
+
+      
+      
+      
+    </ul>
+  
+  </div>
+</nav>
